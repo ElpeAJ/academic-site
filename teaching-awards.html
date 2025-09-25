@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching & Awards | Dr. Sonia J. Arthur</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <!-- <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="publications.html">Publications</a>
+    <a href="cv.html">CV</a>
+    <a href="teaching-awards.html">Teaching & Awards</a>
+    <a href="blog.html">Blog</a>
+    <button id="cvBtn" class="cv-btn">View CV</button>
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+  </nav> -->
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo / Name -->
+      <a href="#" class="nav-logo">Dr. Sonia J. Arthur</a>
+  
+      <!-- Menu Items -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="teaching-awards.html">Teaching & Awards</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><button id="cvBtn" class="cv-btn">View CV</button></li>
+        <li><button id="dark-mode-toggle">Toggle Dark Mode</button></li>
+      </ul>
+  
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Modal for CV -->
+  <div id="cvModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Curriculum Vitae</h2>
+      <iframe src="assets/pdfs/cv.pdf" width="100%" height="500px"></iframe>
+      <div class="modal-footer">
+        <a href="assets/pdfs/cv.pdf" download="Dr. Sonia J. Arthur .pdf" class="download-btn">Download CV</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teaching & Awards Section -->
+<section class="awards">
+    <h2>Teaching & Awards</h2>
+    <div class="awards-grid">
+      <!-- Example Award Card -->
+      <div class="award-card">
+        <div class="award-image">
+          <img src="assets/images/cert-award3.jpg" alt="Best Research Award">
+          <div class="overlay">View</div>
+        </div>
+        <p>Best Research Award - 2023</p>
+      </div>
+
+      <div class="award-card">
+        <div class="award-image">
+          <img src="assets/images/cert-award4.jpg" alt="Best Research Award">
+          <div class="overlay">View</div>
+        </div>
+        <p>Best Research Award - 2023</p>
+      </div>
+  
+      <div class="award-card">
+        <div class="award-image">
+          <img src="assets/images/cert-award1.jpg" alt="Teaching Excellence Award">
+          <div class="overlay">View</div>
+        </div>
+        <p>Teaching Excellence Award - 2022</p>
+      </div>
+      <!-- Add more award cards -->
+    </div>
+  </section>
+
+ <!-- Awards Modal -->
+<div id="award-modal" class="modalA">
+    <span class="close-award">&times;</span>
+    <img id="award-modal-img" src="" alt="Award">
+  </div>
+  
+  
+  
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-card" data-category="bachelors">
+        <h3>Bachelors</h3>
+      </div>
+      <div class="gallery-card" data-category="masters">
+        <h3>Masters</h3>
+      </div>
+      <div class="gallery-card" data-category="internships">
+        <h3>Internships</h3>
+      </div>
+      <!-- Add more categories -->
+    </div>
+  </section>
+  
+  <!-- Modal -->
+<div id="modalTA" class="modalTA">
+    <span class="closeTA">&times;</span>
+    <span class="prevTA">&#10094;</span>
+    <span class="nextTA">&#10095;</span>
+    <img class="modalTA-content" id="modalTA-img">
+    <div id="captionTA"></div>
+</div>
+
+  <!-- Teaching Section
+  <section class="teaching animate-on-scroll">
+    <h2>Teaching</h2>
+    <ul>
+      <li><strong>2024</strong> – Teaching Assistant, "Machine Learning Fundamentals" at XYZ University</li>
+      <li><strong>2023</strong> – Guest Lecturer, "Ethics in AI" at ABC Institute</li>
+    </ul>
+  </section>
+
+  Awards Section
+  <section class="awards animate-on-scroll">
+    <h2>Awards & Honors</h2>
+    <ul>
+      <li><strong>2024</strong> – Best PhD Dissertation Award, XYZ University</li>
+      <li><strong>2023</strong> – Research Fellowship, National AI Research Foundation</li>
+    </ul>
+  </section> -->
+
+  <script src="js/darkmode.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/modal.js"></script>
+</body>
+</html>

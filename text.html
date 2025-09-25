@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/* Hero Section Layout */
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem 2rem;
+  flex-wrap: wrap;
+  text-align: center;
+  /* Soft gradient background */
+  background: linear-gradient(135deg, #f9fafc 0%, #eef2f7 100%);
+  /* background: #f9fafc; */
+}
+
+/* Profile image */
+.hero-image {
+  flex: 1 1 300px;
+}
+
+.hero-image img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #4a90e2;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+  margin-bottom: 1rem;
+}
+
+.hero-image h1 {
+  font-family: "Merriweather", serif;
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: #222;
+}
+
+.hero-image p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Hero Text */
+.hero-text {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+/* Heading animation with underline */
+.fade-slide-in {
+    position: relative;
+  font-family: "Merriweather", serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 1.2s ease-out forwards;
+}
+
+/* Underline effect */
+.fade-slide-in::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 3px;
+  background: #4a90e2;
+  animation: underlineExpand 2s ease-out 1.2s forwards;
+}
+
+@keyframes underlineExpand {
+  to { 
+    width: 100%; 
+}
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typewriter effect */
+.typewriter {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #374151;
+  margin-top: 1.2rem;
+  display: inline-block;
+  border-right: 3px solid #4a90e2; /* Cursor */
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(40, end) forwards, blinkCursor 0.6s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
+
+/* Hide cursor after typing */
+.typewriter.finished {
+  border-right: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .fade-slide-in { font-size: 2.4rem;}
+  .typewriter { font-size: 1.2rem; }
+  .hero-image img { width: 240px; height: 240px; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .fade-slide-in {font-size: 2rem;}
+  .typewriter {font-size: 1.1rem;}
+  .hero-image img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fade-slide-in {font-size: 1.6rem;}
+  .typewriter {font-size: 1rem;}
+  .hero-image img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+<!-- <header class="hero animate-on-scroll">
+    <div class="hero-image">
+      <img src="assets/images/Sonny.JPG" alt="Sonia J. Arthur" class="profile-img">
+      <h1>Dr. Sonia J. Arthur</h1>
+      <p>PhD in Computer Science | Machine Learning | Natural Language Processing</p>
+    </div>
+    
+    <div class="hero-text">
+      <h2 id="animatedHeading">Welcome to My Academic Portfolio</h2>
+      <p id="animatedParagraph">Sharing my research, achievements, and academic journey.</p>
+    </div>
+  </header> -->
+  <!-- Hero Section -->
+<header class="hero animate-on-scroll">
+    <div class="hero-image">
+      <img src="assets/images/Sonny.JPG" alt="Sonia J. Arthur" class="profile-img">
+      <h1>Dr. Sonia J. Arthur</h1>
+      <p>PhD in Computer Science | Machine Learning | Natural Language Processing</p>
+    </div>
+  
+    <div class="hero-text">
+      <h2 class="fade-slide-in">Welcome to My Academic Portfolio</h2>
+      <p class="typewriter" id="typewriter"></p>
+    </div>
+  </header>
+  
+  <script>
+    // Intersection Observer for animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("fade-in-up");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  // Apply to all elements with .animate-on-scroll
+  document.querySelectorAll(".animate-on-scroll").forEach(el => {
+    observer.observe(el);
+  });
+//     // Animate letters for both heading and paragraph
+// function animateText(elementId) {
+//   const element = document.getElementById(elementId);
+//   const text = element.textContent;
+//   element.textContent = "";
+
+//   [...text].forEach((letter, i) => {
+//     const span = document.createElement("span");
+//     span.textContent = letter === " " ? "\u00A0" : letter; // preserve spaces
+//     span.style.animationDelay = `${i * 0.1}s`; // stagger letters
+//     element.appendChild(span);
+//   });
+// }
+
+// animateText("animatedHeading");
+// animateText("animatedParagraph");
+
+// // Animate letters with sequential start
+// function animateText(elementId, baseDelay = 0) {
+//   const element = document.getElementById(elementId);
+//   const text = element.textContent;
+//   element.textContent = "";
+
+//   [...text].forEach((letter, i) => {
+//     const span = document.createElement("span");
+//     span.textContent = letter === " " ? "\u00A0" : letter; // preserve spaces
+//     span.style.animationDelay = `${baseDelay + i * 0.1}s`; // stagger + base delay
+//     element.appendChild(span);
+//   });
+
+//   // return total duration for sequencing
+//   return text.length * 0.1 + 4; // 4s loop + stagger time
+// }
+
+// // First animate heading
+// const headingDuration = animateText("animatedHeading");
+
+// // Then animate paragraph with delay
+// animateText("animatedParagraph", headingDuration);
+
+// function animateText(elementId, baseDelay = 0) {
+//   const element = document.getElementById(elementId);
+//   const text = element.textContent;
+//   element.textContent = "";
+
+//   [...text].forEach((letter, i) => {
+//     const span = document.createElement("span");
+//     span.textContent = letter === " " ? "\u00A0" : letter;
+//     span.style.animationDelay = `${baseDelay + i * 0.1}s`;
+//     element.appendChild(span);
+//   });
+
+//   // return total animation duration
+//   return text.length * 0.1 + 4;
+// }
+
+// const heading = document.getElementById("animatedHeading");
+// const paragraph = document.getElementById("animatedParagraph");
+
+// function alternateAnimations() {
+//   heading.style.opacity = "1";
+//   paragraph.style.opacity = "0";
+//   heading.innerHTML = "Welcome to My Academic Portfolio";
+//   const headingDuration = animateText("animatedHeading");
+
+//   setTimeout(() => {
+//     heading.style.opacity = "0";
+//     paragraph.style.opacity = "1";
+//     paragraph.innerHTML = "Sharing my research, achievements, and academic journey.";
+//     const paragraphDuration = animateText("animatedParagraph");
+
+//     // Loop back to heading
+//     setTimeout(alternateAnimations, paragraphDuration * 1000);
+//   }, headingDuration * 1000);
+// }
+
+// // Start loop
+// alternateAnimations();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const typewriterEl = document.getElementById("typewriter");
+  const text = "Sharing my research, achievements, and academic journey.";
+
+  let i = 0;
+  function typeWriter() {
+    if (i < text.length) {
+      typewriterEl.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 80); // typing speed
+    } else {
+      // Remove cursor after finishing
+      typewriterEl.classList.add("finished");
+    }
+  }
+
+  typeWriter();
+});
+
+  </script>
+</body>
+</html>

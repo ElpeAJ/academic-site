@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Dr. Sonia J. Arthur</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <!-- <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="publications.html">Publications</a>
+    <a href="cv.html">CV</a>
+    <a href="teaching-awards.html">Teaching & Awards</a>
+    <a href="blog.html">Blog</a>
+    <button id="cvBtn" class="cv-btn">View CV</button>
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+  </nav> -->
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo / Name -->
+      <a href="#" class="nav-logo">Dr. Sonia J. Arthur</a>
+  
+      <!-- Menu Items -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="teaching-awards.html">Teaching & Awards</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><button id="cvBtn" class="cv-btn">View CV</button></li>
+        <li><button id="dark-mode-toggle">Toggle Dark Mode</button></li>
+      </ul>
+  
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Modal for CV -->
+  <div id="cvModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Curriculum Vitae</h2>
+      <iframe src="assets/pdfs/cv.pdf" width="100%" height="500px"></iframe>
+      <div class="modal-footer">
+        <a href="assets/pdfs/cv.pdf" download="Dr. Sonia J. Arthur .pdf" class="download-btn">Download CV</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Section -->
+  <section class="blog animate-on-scroll">
+    <h2>Latest Updates</h2>
+    <div class="blog-post">
+      <h3>Attended the International Conference on AI (ICAI 2025)</h3>
+      <p class="meta">📅 January 15, 2025 | 🏛️ Berlin, Germany</p>
+      <p>
+        I presented my paper on "Deep Learning for Healthcare Text Analysis" and
+        had the opportunity to network with amazing researchers working on AI
+        ethics and NLP. 
+      </p>
+    </div>
+
+    <div class="blog-post animate-on-scroll">
+      <h3>New Publication Accepted!</h3>
+      <p class="meta">📅 December 2, 2024 | 📰 Journal of Computational Linguistics</p>
+      <p>
+        Excited to announce that my paper, "Ethical Challenges in AI for Healthcare,"
+        has been accepted for publication. 
+      </p>
+    </div>
+
+    <div class="blog-post animate-on-scroll">
+      <h3>Guest Lecture at ABC Institute</h3>
+      <p class="meta">📅 November 2024 | 🎓 Ethics in AI</p>
+      <p>
+        I delivered a guest lecture on the intersection of AI, ethics, and
+        healthcare, highlighting potential biases and mitigation strategies.
+      </p>
+    </div>
+  </section>
+
+  <script src="js/darkmode.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/modal.js"></script>
+</body>
+</html>

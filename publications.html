@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications | Dr. Sonia J. Arthur</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="publications.html">Publications</a>
+        <a href="cv.html">CV</a>
+        <a href="teaching-awards.html">Teaching & Awards</a>
+        <a href="blog.html">Blog</a>
+        <button id="cvBtn" class="cv-btn">View CV</button>
+        <button id="dark-mode-toggle">Toggle Dark Mode</button>
+    </nav> -->
+
+    <nav class="navbar">
+        <div class="nav-container">
+          <!-- Logo / Name -->
+          <a href="#" class="nav-logo">Dr. Sonia J. Arthur</a>
+      
+          <!-- Menu Items -->
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="teaching-awards.html">Teaching & Awards</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><button id="cvBtn" class="cv-btn">View CV</button></li>
+            <li><button id="dark-mode-toggle">Toggle Dark Mode</button></li>
+          </ul>
+      
+          <!-- Hamburger -->
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    <!-- Modal for CV -->
+  <div id="cvModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Curriculum Vitae</h2>
+      <iframe src="assets/pdfs/cv.pdf" width="100%" height="500px"></iframe>
+      <div class="modal-footer">
+        <a href="assets/pdfs/cv.pdf" download="Dr. Sonia J. Arthur .pdf" class="download-btn">Download CV</a>
+      </div>
+    </div>
+  </div>
+    <section class="publications">
+        <h2>Publications</h2>
+        <ul id="pub-list"></ul>
+    </section>
+
+    <script src="js/publications.js"></script>
+    <script src="js/darkmode.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+</html>

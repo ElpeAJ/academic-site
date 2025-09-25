@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .awards, .gallery {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.awards h2, .gallery h2 {
+  font-family: "Merriweather", serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1f2937;
+}
+
+.awards-grid, .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+/* Award Cards */
+.award-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+/* .award-card:hover {
+  transform: translateY(-5px);
+} */
+
+.award-image {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer; /* whole block is clickable */
+}
+
+.award-image img {
+  width: 100%;
+  display: block;
+  transition: filter 0.3s;
+  border-radius: 8px;
+}
+
+.award-image .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  bottom: 0; right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer; /* overlay also shows pointer */
+}
+
+.award-image:hover img {
+  filter: grayscale(100%);
+}
+
+.award-image:hover .overlay {
+  opacity: 1;
+}
+
+.award-card p {
+  padding: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: #374151;
+}
+
+/* Gallery Cards */
+.gallery-card {
+  background: #f4f6f9;
+  border-radius: 12px;
+  padding: 3rem 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.gallery-card:hover {
+  background: #4a90e2;
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+.gallery-card h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+}
+
+/* Modal */
+.modalTA, .modalA {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modalTA-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 8px;
+}
+
+.closeTA {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Modal Navigation */
+.prevTA, .nextTA {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.prevTA { left: 20px; }
+.nextTA { right: 20px; }
+
+.prevTA:hover, .nextTA:hover {
+  color: #4a90e2;
+}
+
+/* Award Modal (same styling as Gallery Modal, without nav arrows) */
+#award-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8); /* Greyed-out background */
+  justify-content: center;
+  align-items: center;
+}
+
+#award-modal img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.3);
+  animation: zoomInAward 0.4s ease;
+}
+
+/* Close button */
+.close-award {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-award:hover {
+  color: #f1f1f1;
+}
+
+/* Zoom animation */
+@keyframes zoomInAward {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+</style>
+<body>
+    <!-- Teaching & Awards Section -->
+<section class="awards">
+    <h2>Teaching & Awards</h2>
+    <div class="awards-grid">
+      <!-- Example Award Card -->
+      <div class="award-card">
+        <div class="award-image">
+          <img src="assets/images/cert-award3.jpg" alt="Best Research Award">
+          <div class="overlay">View</div>
+        </div>
+        <p>Best Research Award - 2023</p>
+      </div>
+
+      <div class="award-card">
+        <div class="award-image">
+          <img src="assets/images/cert-award4.jpg" alt="Best Research Award">
+          <div class="overlay">View</div>
+        </div>
+        <p>Best Research Award - 2023</p>
+      </div>
+  
+      <div class="award-card">
+        <div class="award-image">
+          <img src="assets/images/cert-award1.jpg" alt="Teaching Excellence Award">
+          <div class="overlay">View</div>
+        </div>
+        <p>Teaching Excellence Award - 2022</p>
+      </div>
+      <!-- Add more award cards -->
+    </div>
+  </section>
+
+ <!-- Awards Modal -->
+<div id="award-modal" class="modalA">
+    <span class="close-award">&times;</span>
+    <img id="award-modal-img" src="" alt="Award">
+  </div>
+  
+  
+  
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-card" data-category="bachelors">
+        <h3>Bachelors</h3>
+      </div>
+      <div class="gallery-card" data-category="masters">
+        <h3>Masters</h3>
+      </div>
+      <div class="gallery-card" data-category="internships">
+        <h3>Internships</h3>
+      </div>
+      <!-- Add more categories -->
+    </div>
+  </section>
+  
+  <!-- Modal -->
+<div id="modalTA" class="modalTA">
+    <span class="closeTA">&times;</span>
+    <span class="prevTA">&#10094;</span>
+    <span class="nextTA">&#10095;</span>
+    <img class="modalTA-content" id="modalTA-img">
+    <div id="captionTA"></div>
+</div>
+  
+  <script>
+
+const tamodal = document.getElementById("modalTA");
+const modalImg = document.getElementById("modalTA-img");
+const captionText = document.getElementById("captionTA");
+const closeBtn = document.querySelector(".closeTA");
+const prevBtn = document.querySelector(".prevTA");
+const nextBtn = document.querySelector(".nextTA");
+
+let currentImages = [];
+let currentIndex = 0;
+
+/* --- Gallery Images (DEMO dataset) --- */
+const galleries = {
+  bachelors: [
+    "assets/images/Bachelors1.jpeg",
+    "assets/images/Bachelors2.JPG",
+    "assets/images/Bachelors3.JPG",
+    "assets/images/Bachelors4.jpeg"
+  ],
+  masters: [
+    "assets/images/Masters1.JPG",
+    "assets/images/Masters2.jpeg",
+    "assets/images/Masters3.jpeg"
+  ],
+  internships: [
+    "assets/images/Internship1.jpeg",
+    "assets/images/Internship2.JPG",
+    "assets/images/Internship3.jpeg",
+    "assets/images/Internship3.jpeg"
+  ]
+};
+
+/* --- Gallery Modal --- */
+document.querySelectorAll(".gallery-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const category = card.dataset.category; // e.g. "bachelors"
+    currentImages = galleries[category];  // fetch array of images
+    currentIndex = 0;
+    openImage(currentIndex, category);
+  });
+});
+
+function openImage(index, category) {
+  tamodal.style.display = "block";
+  modalImg.src = currentImages[index];
+  captionText.innerHTML = `${category.charAt(0).toUpperCase() + category.slice(1)} (${index+1}/${currentImages.length})`;
+}
+
+/* --- Navigation --- */
+nextBtn.addEventListener("click", () => {
+  if (currentImages.length > 0) {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    modalImg.src = currentImages[currentIndex];
+  }
+});
+
+prevBtn.addEventListener("click", () => {
+  if (currentImages.length > 0) {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    modalImg.src = currentImages[currentIndex];
+  }
+});
+
+/* --- Close Modal --- */
+closeBtn.addEventListener("click", () => {
+  tamodal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    tamodal.style.display = "none";
+  }
+});
+
+/* --- Awards Modal --- */
+const awardModal = document.getElementById("award-modal");
+const awardModalImg = document.getElementById("award-modal-img");
+const closeAwardModal = document.querySelector(".close-award");
+
+// Award Images (overlay OR image clickable)
+document.querySelectorAll(".award-card .award-image").forEach(div => {
+  div.addEventListener("click", () => {
+    const img = div.querySelector("img");
+    awardModal.style.display = "flex"; // Use flex so it centers properly
+    awardModalImg.src = img.src;
+  });
+});
+
+// Close Award Modal
+closeAwardModal.addEventListener("click", () => {
+  awardModal.style.display = "none";
+});
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Sonia J. Arthur| Academic Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <!-- <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="publications.html">Publications</a>
+    <a href="cv.html">CV</a>
+    <a href="teaching-awards.html">Teaching & Awards</a>
+    <a href="blog.html">Blog</a>
+    <button id="cvBtn" class="cv-btn">View CV</button>
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+  </nav> -->
+  <!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo / Name -->
+      <a href="#" class="nav-logo">Dr. Sonia J. Arthur</a>
+  
+      <!-- Menu Items -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="teaching-awards.html">Teaching & Awards</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><button id="cvBtn" class="cv-btn">View CV</button></li>
+        <li><button id="dark-mode-toggle">Toggle Dark Mode</button></li>
+      </ul>
+  
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+<header class="hero animate-on-scroll">
+    <div class="hero-image">
+      <img src="assets/images/Sonny.JPG" alt="Sonia J. Arthur" class="profile-img">
+      <h1>Dr. Sonia J. Arthur</h1>
+      <p>PhD in Computer Science | Machine Learning | Natural Language Processing</p>
+    </div>
+  
+    <div class="hero-text">
+      <h2 class="fade-slide-in">Welcome to My Academic Portfolio</h2>
+      <p class="typewriter" id="typewriter"></p>
+    </div>
+  </header>
+  <!-- Modal for CV -->
+  <div id="cvModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Curriculum Vitae</h2>
+      <iframe src="assets/pdfs/cv.pdf" width="100%" height="500px"></iframe>
+      <div class="modal-footer">
+        <a href="assets/pdfs/cv.pdf" download="Dr. Sonia J. Arthur .pdf" class="download-btn">Download CV</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Me</h2>
+    <p>
+      I am a fresh PhD graduate from XYZ University, specializing in Natural
+      Language Processing and AI for healthcare applications. My research
+      focuses on computational linguistics and the ethical use of machine
+      learning in sensitive domains.
+    </p>
+  </section>
+  <section class="cv">
+    <h2>Curriculum Vitae</h2>
+    <p>You can download my CV below:</p>
+    <a class="btn" href="assets/pdfs/cv.pdf" download>Download CV</a>
+  </section>
+  <script src="js/darkmode.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* Hamburger icon lines */
+    .hamburger {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: #333;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+  
+    /* Animation into X */
+    .hamburger.active .hamburger-top {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+  
+    .hamburger.active .hamburger-middle {
+      opacity: 0;
+    }
+  
+    .hamburger.active .hamburger-bottom {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  </style>
+<body>
+    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-gray-800">Dr Sonia</div>
+      
+            <!-- Desktop Links -->
+            <div class="hidden md:flex space-x-6">
+              <a href="#about" class="text-gray-700 hover:text-blue-600">About</a>
+              <a href="#research" class="text-gray-700 hover:text-blue-600">Research</a>
+              <a href="#awards" class="text-gray-700 hover:text-blue-600">Awards</a>
+              <a href="#gallery" class="text-gray-700 hover:text-blue-600">Gallery</a>
+              <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+            </div>
+      
+            <!-- Mobile Hamburger -->
+            <div class="md:hidden flex items-center">
+              <button id="menu-btn" class="hamburger block focus:outline-none">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Mobile Menu -->
+        <div class="md:hidden">
+          <div id="menu" class="absolute right-0 top-16 bg-white w-2/3 h-screen transform translate-x-full transition-transform duration-300 ease-in-out shadow-lg">
+            <nav class="flex flex-col items-start p-6 space-y-6">
+              <a href="#about" class="text-gray-700 hover:text-blue-600">About</a>
+              <a href="#research" class="text-gray-700 hover:text-blue-600">Research</a>
+              <a href="#awards" class="text-gray-700 hover:text-blue-600">Awards</a>
+              <a href="#gallery" class="text-gray-700 hover:text-blue-600">Gallery</a>
+              <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+            </nav>
+          </div>
+        </div>
+      </nav>
+      
+      <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+      
+        menuBtn.addEventListener('click', () => {
+          menu.classList.toggle('translate-x-full');
+          menu.classList.toggle('translate-x-0');
+          menuBtn.classList.toggle('active');
+        });
+      </script>
+      
+</body>
+</html>
