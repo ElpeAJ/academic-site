@@ -245,6 +245,13 @@
     opacity: 0;
     transform: translateY(20px);
     animation: fadeSlideIn 1.2s ease-out forwards;
+
+    /* 🔹 Added for responsiveness */
+  text-align: center;
+  padding: 0 1rem;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   }
   
   /* Underline effect */
@@ -281,9 +288,19 @@
     margin-top: 1.2rem;
     display: inline-block;
     border-right: 3px solid #4a90e2; /* Cursor */
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 4s steps(40, end) forwards, blinkCursor 0.6s step-end infinite;
+    /* white-space: nowrap;
+    overflow: hidden; */
+
+    /* 🔹 Added */
+  text-align: center;
+  padding: 0 1rem;
+  max-width: 90%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  
+  animation: typing 4s steps(40, end) forwards, blinkCursor 0.6s step-end infinite;
+    
   }
   
   @keyframes typing {
