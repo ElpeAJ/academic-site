@@ -26,6 +26,7 @@
           <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="publications.html">Publications</a></li>
+            <li><a href="text6.html">Publications2</a></li>
             <li><a href="cv.html">CV</a></li>
             <li><a href="teaching-awards.html">Teaching & Awards</a></li>
             <li><a href="#gallery">Gallery</a></li>
@@ -53,12 +54,76 @@
       </div>
     </div>
   </div>
-    <section class="publications">
+    <!-- <section class="publications">
         <h2>Publications</h2>
         <ul id="pub-list"></ul>
-    </section>
-
-    <script src="js/publications.js"></script>
+    </section> -->
+    <div class="pub-container">
+        <div class="pub-header">
+          <h2>Publications</h2>
+          <p>Explore selected journal articles, conference papers, and more.</p>
+        </div>
+    
+        <!-- Filters & Search -->
+        <div class="filters">
+          <button onclick="filterSelection('all')">All</button>
+          <button onclick="filterSelection('journal')">Journals</button>
+          <button onclick="filterSelection('conference')">Conferences</button>
+          <button onclick="filterSelection('book')">Books</button>
+          <input type="text" class="search-bar" id="searchBar" placeholder="Search publications...">
+        </div>
+    
+        <!-- Publications Grid -->
+        <div class="pub-grid">
+          <!-- Journal Example -->
+          <div class="pub-card filter-item journal">
+            <div class="pub-title">Public Policy solutions in data management</div>
+            <div class="pub-authors">Arthur, S. J., & Dean, J.</div>
+            <div class="pub-year">2025 – Journal of Health Informatics</div>
+            <a href="#">View PDF</a>
+          </div>
+          <!-- Journal Example -->
+          <div class="pub-card filter-item journal">
+            <div class="pub-title">AI-driven solutions in medical data management</div>
+            <div class="pub-authors">Arthur, S. J., & Doe, J.</div>
+            <div class="pub-year">2024 – Journal of Health Informatics</div>
+            <a href="#">View PDF</a>
+          </div>
+    
+          <!-- Conference Example -->
+          <div class="pub-card filter-item conference">
+            <div class="pub-title">Leveraging AI for Sustainable Development in Healthcare</div>
+            <div class="pub-authors">Arthur, S. J.</div>
+            <div class="pub-year">2024 – GH AI Summit & Awards</div>
+            <a href="#">View Presentation</a>
+          </div>
+    
+          <!-- Book Example -->
+          <div class="pub-card filter-item book">
+            <div class="pub-title">AI in Medical Research</div>
+            <div class="pub-authors">Arthur, S. J.</div>
+            <div class="pub-year">2023 – Advances in Health Technology</div>
+            <a href="#">View Chapter</a>
+          </div>
+    
+          <!-- Journal Example -->
+        <div class="pub-card filter-item journal">
+          <div class="pub-title">AI-driven solutions in Public Policy</div>
+          <div class="pub-authors">Arthur, S. J., & Mohammed, J.</div>
+          <div class="pub-year">2023 – Journal of Health Informatics</div>
+          <a href="#">View PDF</a>
+        </div>
+    
+        <!-- Book Example -->
+        <div class="pub-card filter-item book">
+          <div class="pub-title">AI in Public Policy</div>
+          <div class="pub-authors">Arthur, S. J.</div>
+          <div class="pub-year">2022 – Advances in Public Policy</div>
+          <a href="#" target="_blank">View Chapter</a>
+        </div>
+      </div>
+    </div>
+    <script src="data/publications.js"></script>
     <script src="js/darkmode.js"></script>
     <script src="js/modal.js"></script>
 </body>

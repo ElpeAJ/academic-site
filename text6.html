@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pub 2</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+    /* =========================
+   Global Styles + Variables
+========================= */
+:root {
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --card-bg: #fff;
+    --link-color: #0073e6;
+
+     /* 🔹 New additions */
+  --muted-text: #666;
+  --border-color: #ccc;
+  --input-bg: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --primary-color: #0073e6;
+  --primary-hover: #005bb5;
+  }
+  
+  body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f1f1f1;
+    --card-bg: #1e1e1e;
+    --link-color: #4da6ff;
+
+    /* 🔹 Dark equivalents */
+  --muted-text: #bbbbbb;
+  --border-color: #444;
+  --input-bg: #2a2a2a;
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --primary-color: #4da6ff;
+  --primary-hover: #6aa8f5;
+  }
+
+    .pub-year-section {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: 0 2px 6px var(--card-shadow);
+}
+
+.year-toggle {
+  width: 100%;
+  text-align: left;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.8rem 1rem;
+  font-size: 1.1rem;
+  font-family: "Merriweather", serif;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.year-toggle:hover {
+  background: var(--primary-hover);
+}
+
+.pub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 1.2rem 1rem;
+  display: none; /* collapsed by default */
+}
+
+.pub-list li {
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.pub-list li a {
+  display: inline-block;
+  margin-top: 0.3rem;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.pub-list li a:hover {
+  background: var(--primary-hover);
+}
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+          <!-- Logo / Name -->
+          <a href="#" class="nav-logo">Dr. Sonia J. Arthur</a>
+      
+          <!-- Menu Items -->
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="teaching-awards.html">Teaching & Awards</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><button id="cvBtn" class="cv-btn">View CV</button></li>
+            <li><button id="dark-mode-toggle">Toggle Dark Mode</button></li>
+          </ul>
+      
+          <!-- Hamburger -->
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    <!-- Publications: Chronological List -->
+<section class="pub-container">
+    <div class="pub-header">
+      <h2>Publications</h2>
+      <p>Browse selected works by year, including journal articles, conferences, and books.</p>
+    </div>
+  
+    <!-- Year 2025 -->
+    <div class="pub-year-section">
+      <button class="year-toggle">2025</button>
+      <ul class="pub-list">
+        <li>
+          <strong>Public Policy solutions in data management</strong><br>
+          Arthur, S. J., & Dean, J. <br>
+          <em>Journal of Health Informatics</em><br>
+          <a href="#">View PDF</a>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Year 2024 -->
+    <div class="pub-year-section">
+      <button class="year-toggle">2024</button>
+      <ul class="pub-list">
+        <li>
+          <strong>AI-driven solutions in medical data management</strong><br>
+          Arthur, S. J., & Doe, J. <br>
+          <em>Journal of Health Informatics</em><br>
+          <a href="#">View PDF</a>
+        </li>
+        <li>
+          <strong>Leveraging AI for Sustainable Development in Healthcare</strong><br>
+          Arthur, S. J. <br>
+          <em>GH AI Summit & Awards</em><br>
+          <a href="#">View Presentation</a>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Year 2023 -->
+    <div class="pub-year-section">
+      <button class="year-toggle">2023</button>
+      <ul class="pub-list">
+        <li>
+          <strong>AI in Medical Research</strong><br>
+          Arthur, S. J. <br>
+          <em>Advances in Health Technology</em><br>
+          <a href="#">View Chapter</a>
+        </li>
+        <li>
+          <strong>AI-driven solutions in Public Policy</strong><br>
+          Arthur, S. J., & Mohammed, J. <br>
+          <em>Journal of Health Informatics</em><br>
+          <a href="#">View PDF</a>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Year 2022 -->
+    <div class="pub-year-section">
+      <button class="year-toggle">2022</button>
+      <ul class="pub-list">
+        <li>
+          <strong>AI in Public Policy</strong><br>
+          Arthur, S. J. <br>
+          <em>Advances in Public Policy</em><br>
+          <a href="#">View Chapter</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  
+  <script>
+    document.querySelectorAll('.year-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const pubList = button.nextElementSibling;
+    pubList.style.display = pubList.style.display === "block" ? "none" : "block";
+  });
+});
+
+  </script>
+  <script src="js/darkmode.js"></script>
+  <script src="js/modal.js"></script>
+</body>
+</html>

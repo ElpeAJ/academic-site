@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* =========================
+   Global Styles + Variables
+========================= */
+:root {
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --card-bg: #fff;
+    --link-color: #0073e6;
+
+     /* 🔹 New additions */
+  --muted-text: #666;
+  --border-color: #ccc;
+  --input-bg: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --primary-color: #0073e6;
+  --primary-hover: #005bb5;
+  }
+  
+  body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f1f1f1;
+    --card-bg: #1e1e1e;
+    --link-color: #4da6ff;
+
+    /* 🔹 Dark equivalents */
+  --muted-text: #bbbbbb;
+  --border-color: #444;
+  --input-bg: #2a2a2a;
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --primary-color: #4da6ff;
+  --primary-hover: #6aa8f5;
+  }
+        /* Chronological Publications */
+.pub-chronological {
+  max-width: 800px;
+  margin: auto;
+}
+
+.year-group {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: var(--card-bg);
+  overflow: hidden;
+}
+
+.year-toggle {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+  border: none;
+  background: var(--card-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.year-toggle:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.pub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 1rem 1rem;
+  display: none;
+}
+
+.pub-list.show {
+  display: block;
+}
+
+.pub-item {
+  margin: 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.pub-item:last-child {
+  border-bottom: none;
+}
+
+.pub-item .pub-title {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.pub-item .pub-authors {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.pub-item a {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+  background: var(--link-color);
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+}
+
+.pub-item a:hover {
+  opacity: 0.9;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Publications Page - Option 1 -->
+<section class="pub-container">
+    <div class="pub-header">
+      <h2>Publications</h2>
+      <p>A chronological list of publications grouped by year</p>
+    </div>
+  
+    <div class="pub-chronological">
+  
+      <!-- Year Group -->
+      <div class="year-group">
+        <button class="year-toggle">2025 ▾</button>
+        <ul class="pub-list">
+          <li class="pub-item">
+            <span class="pub-title">AI in Education: Emerging Frontiers</span><br>
+            <span class="pub-authors">Jane Doe, John Smith</span>  
+            <a href="#">Read More</a>
+          </li>
+          <li class="pub-item">
+            <span class="pub-title">Sustainable AI in Research</span><br>
+            <span class="pub-authors">Elpedia Arthur, Clara James</span>
+            <a href="#">Read More</a>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- Year Group -->
+      <div class="year-group">
+        <button class="year-toggle">2024 ▾</button>
+        <ul class="pub-list">
+          <li class="pub-item">
+            <span class="pub-title">Digital Health Transformation</span><br>
+            <span class="pub-authors">Michael Lee, Elpedia Arthur</span>  
+            <a href="#">Read More</a>
+          </li>
+        </ul>
+      </div>
+  
+    </div>
+  </section>
+  <script>
+    
+  document.querySelectorAll(".year-toggle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const list = btn.nextElementSibling;
+      list.classList.toggle("show");
+      btn.textContent = list.classList.contains("show") 
+        ? btn.textContent.replace("▸","▾") 
+        : btn.textContent.replace("▾","▸");
+    });
+  });
+
+  </script>
+</body>
+</html>
