@@ -82,4 +82,4 @@ This project is licensed under the MIT License – feel free to use and adapt.
 ### 📖 Publications – Chronological List
 ![Publications List](assets/screenshots/PublicationsR2.png)
 
-<img src="assets/screenshots/Teaching1.png" alt="Homepage Screenshot" width="600">
+<img src="assets/screenshots/Teaching1.png" alt="Homepage Screenshot" width="100%">
