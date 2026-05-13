@@ -1,37 +1,41 @@
-// Get modal elements
-const cvBtn = document.getElementById("cvBtn");
-const cvmodal = document.getElementById("cvModal");
-const closeModal = document.getElementById("closeModal");
+const cvButton = document.getElementById("cvBtn");
+const cvModal = document.getElementById("cvModal");
+const closeCvModal = document.getElementById("closeModal");
 
-// Open modal on button hover or click
-cvBtn.addEventListener("click", () => {
-  cvmodal.style.display = "block";
-});
-
-// Close modal
-closeModal.addEventListener("click", () => {
-  cvmodal.style.display = "none";
-});
-
-// Close if clicked outside content
-window.addEventListener("click", (e) => {
-  if (e.target === cvmodal) {
-    cvmodal.style.display = "none";
+function hideModal(modalElement) {
+  if (!modalElement) {
+    return;
   }
-});
 
-//Teaching and Awards Modal //
-const tamodal = document.getElementById("modalTA");
-const modalImg = document.getElementById("modalTA-img");
-const captionText = document.getElementById("captionTA");
-const closeBtn = document.querySelector(".closeTA");
-const prevBtn = document.querySelector(".prevTA");
-const nextBtn = document.querySelector(".nextTA");
+  modalElement.style.display = "none";
+  modalElement.setAttribute("aria-hidden", "true");
+}
+
+function showModal(modalElement, displayMode = "block") {
+  if (!modalElement) {
+    return;
+  }
+
+  modalElement.style.display = displayMode;
+  modalElement.setAttribute("aria-hidden", "false");
+}
+
+if (cvButton && cvModal && closeCvModal) {
+  cvButton.addEventListener("click", () => showModal(cvModal));
+  closeCvModal.addEventListener("click", () => hideModal(cvModal));
+}
+
+const galleryModal = document.getElementById("modalTA");
+const galleryImage = document.getElementById("modalTA-img");
+const galleryCaption = document.getElementById("captionTA");
+const galleryClose = document.querySelector(".closeTA");
+const galleryPrev = document.querySelector(".prevTA");
+const galleryNext = document.querySelector(".nextTA");
 
 let currentImages = [];
 let currentIndex = 0;
+let currentCategory = "";
 
-/* --- Gallery Images (DEMO dataset) --- */
 const galleries = {
   bachelors: [
     "assets/images/Bachelors1.jpeg",
@@ -48,67 +52,101 @@ const galleries = {
     "assets/images/Internship1.jpeg",
     "assets/images/Internship2.JPG",
     "assets/images/Internship3.jpeg",
-    "assets/images/Internship3.jpeg"
+    "assets/images/Internship4.jpeg"
   ]
 };
 
-/* --- Gallery Modal --- */
-document.querySelectorAll(".gallery-card").forEach(card => {
-  card.addEventListener("click", () => {
-    const category = card.dataset.category; // e.g. "bachelors"
-    currentImages = galleries[category];  // fetch array of images
-    currentIndex = 0;
-    openImage(currentIndex, category);
-  });
-});
+function updateGalleryModal() {
+  if (!galleryModal || !galleryImage || !galleryCaption || currentImages.length === 0) {
+    return;
+  }
 
-function openImage(index, category) {
-  tamodal.style.display = "block";
-  modalImg.src = currentImages[index];
-  captionText.innerHTML = `${category.charAt(0).toUpperCase() + category.slice(1)} (${index+1}/${currentImages.length})`;
+  galleryImage.src = currentImages[currentIndex];
+  galleryCaption.textContent = `${currentCategory} (${currentIndex + 1}/${currentImages.length})`;
 }
 
-/* --- Navigation --- */
-nextBtn.addEventListener("click", () => {
-  if (currentImages.length > 0) {
-    currentIndex = (currentIndex + 1) % currentImages.length;
-    modalImg.src = currentImages[currentIndex];
-  }
-});
+document.querySelectorAll(".gallery-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const categoryKey = card.dataset.category;
+    const imageSet = galleries[categoryKey];
 
-prevBtn.addEventListener("click", () => {
-  if (currentImages.length > 0) {
-    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-    modalImg.src = currentImages[currentIndex];
-  }
-});
+    if (!galleryModal || !imageSet) {
+      return;
+    }
 
-/* --- Close Modal --- */
-closeBtn.addEventListener("click", () => {
-  tamodal.style.display = "none";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    tamodal.style.display = "none";
-  }
-});
-
-/* --- Awards Modal --- */
-const awardModal = document.getElementById("award-modal");
-const awardModalImg = document.getElementById("award-modal-img");
-const closeAwardModal = document.querySelector(".close-award");
-
-// Award Images (overlay OR image clickable)
-document.querySelectorAll(".award-card .award-image").forEach(div => {
-  div.addEventListener("click", () => {
-    const img = div.querySelector("img");
-    awardModal.style.display = "flex"; // Use flex so it centers properly
-    awardModalImg.src = img.src;
+    currentImages = imageSet;
+    currentIndex = 0;
+    currentCategory = card.querySelector("h3")?.textContent || categoryKey;
+    updateGalleryModal();
+    showModal(galleryModal, "flex");
   });
 });
 
-// Close Award Modal
-closeAwardModal.addEventListener("click", () => {
-  awardModal.style.display = "none";
+if (galleryNext) {
+  galleryNext.addEventListener("click", () => {
+    if (currentImages.length === 0) {
+      return;
+    }
+
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    updateGalleryModal();
+  });
+}
+
+if (galleryPrev) {
+  galleryPrev.addEventListener("click", () => {
+    if (currentImages.length === 0) {
+      return;
+    }
+
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    updateGalleryModal();
+  });
+}
+
+if (galleryClose && galleryModal) {
+  galleryClose.addEventListener("click", () => hideModal(galleryModal));
+}
+
+const awardModal = document.getElementById("award-modal");
+const awardModalImage = document.getElementById("award-modal-img");
+const awardClose = document.querySelector(".close-award");
+
+document.querySelectorAll(".award-card .award-image").forEach((card) => {
+  card.addEventListener("click", () => {
+    const image = card.querySelector("img");
+    if (!awardModal || !awardModalImage || !image) {
+      return;
+    }
+
+    awardModalImage.src = image.src;
+    awardModalImage.alt = image.alt;
+    showModal(awardModal, "flex");
+  });
+});
+
+if (awardClose && awardModal) {
+  awardClose.addEventListener("click", () => hideModal(awardModal));
+}
+
+window.addEventListener("click", (event) => {
+  if (event.target === cvModal) {
+    hideModal(cvModal);
+  }
+
+  if (event.target === galleryModal) {
+    hideModal(galleryModal);
+  }
+
+  if (event.target === awardModal) {
+    hideModal(awardModal);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    hideModal(cvModal);
+    hideModal(galleryModal);
+    hideModal(awardModal);
+  }
 });

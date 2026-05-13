@@ -3,90 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Sonia J. Arthur| Academic Profile</title>
+  <meta name="description" content="Academic portfolio of Dr. Sonia J. Arthur, PhD student in Computer Science at Boston University, featuring research interests, publications, and academic milestones.">
+  <title>Dr. Sonia J. Arthur | Academic Profile</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <!-- Navigation -->
-  <!-- <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="publications.html">Publications</a>
-    <a href="cv.html">CV</a>
-    <a href="teaching-awards.html">Teaching & Awards</a>
-    <a href="blog.html">Blog</a>
-    <button id="cvBtn" class="cv-btn">View CV</button>
-    <button id="dark-mode-toggle">Toggle Dark Mode</button>
-  </nav> -->
-  <!-- Navigation -->
-<nav class="navbar">
+<body data-page="home">
+  <nav class="navbar">
     <div class="nav-container">
-      <!-- Logo / Name -->
-      <a href="#" class="nav-logo">Dr. Sonia J. Arthur</a>
-  
-      <!-- Menu Items -->
+      <a href="index.html" class="nav-logo">Dr. Sonia J. Arthur</a>
       <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="cv.html">CV</a></li>
-        <li><a href="teaching-awards.html">Teaching & Awards</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><button id="cvBtn" class="cv-btn">View CV</button></li>
-        <li><button id="dark-mode-toggle">Toggle Dark Mode</button></li>
+        <li><a href="index.html" data-nav="home">Home</a></li>
+        <li><a href="publications.html" data-nav="publications">Publications</a></li>
+        <li><a href="cv.html" data-nav="cv">CV</a></li>
+        <li><a href="teaching-awards.html" data-nav="teaching-awards">Teaching & Awards</a></li>
+        <li><a href="blog.html" data-nav="blog">Updates</a></li>
+        <li class="nav-actions">
+          <button id="cvBtn" class="cv-btn" type="button">View CV</button>
+          <button id="dark-mode-toggle" type="button">Toggle Theme</button>
+        </li>
       </ul>
-  
-      <!-- Hamburger -->
-      <div class="hamburger" id="hamburger">
+      <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-<header class="hero animate-on-scroll">
+  <header class="hero animate-on-scroll">
     <div class="hero-image">
-      <img src="assets/images/Sonny.JPG" alt="Sonia J. Arthur" class="profile-img">
+      <img src="assets/images/Sonny.JPG" alt="Portrait of Dr. Sonia J. Arthur" class="profile-img">
       <h1>Dr. Sonia J. Arthur</h1>
-      <p>PhD in Computer Science | Machine Learning | Natural Language Processing</p>
+      <p>PhD Student in Computer Science focused on machine learning, NLP, and responsible AI.</p>
     </div>
-  
+
     <div class="hero-text">
-      <h2 class="fade-slide-in">Welcome to My Academic Portfolio</h2>
+      <span class="eyebrow">Boston University</span>
+      <h2 class="fade-slide-in">Research grounded in impact, ethics, and real-world data.</h2>
+      <p class="hero-copy">
+        This portfolio brings together Sonia's academic journey, research interests, selected publications,
+        teaching contributions, and milestones in one clean space for collaborators, mentors, and future partners.
+      </p>
       <p class="typewriter" id="typewriter"></p>
+      <div class="hero-actions">
+        <a class="btn" href="publications.html">Browse Publications</a>
+        <a class="btn btn-secondary" href="teaching-awards.html">See Awards & Gallery</a>
+      </div>
+      <div class="hero-highlights">
+        <div class="highlight-card">
+          <strong>AI + Health</strong>
+          <span>Applied research across healthcare, policy, and language data.</span>
+        </div>
+        <div class="highlight-card">
+          <strong>Academic Growth</strong>
+          <span>Graduate training spanning KNUST and doctoral study at Boston University.</span>
+        </div>
+        <div class="highlight-card">
+          <strong>Public Impact</strong>
+          <span>Work shaped around accessible systems, evidence, and responsible deployment.</span>
+        </div>
+      </div>
     </div>
   </header>
-  <!-- Modal for CV -->
-  <div id="cvModal" class="modal">
+
+  <div id="cvModal" class="modal" aria-hidden="true">
     <div class="modal-content">
-      <span id="closeModal" class="close">&times;</span>
+      <span id="closeModal" class="close" role="button" aria-label="Close CV modal">&times;</span>
       <h2>Curriculum Vitae</h2>
-      <iframe src="assets/pdfs/cv.pdf" width="100%" height="500px"></iframe>
+      <iframe src="assets/pdfs/cv.pdf" title="Curriculum Vitae preview"></iframe>
       <div class="modal-footer">
-        <a href="assets/pdfs/cv.pdf" download="Dr. Sonia J. Arthur .pdf" class="download-btn">Download CV</a>
+        <a href="assets/pdfs/cv.pdf" download="Dr-Sonia-J-Arthur-CV.pdf" class="download-btn">Download CV</a>
       </div>
     </div>
   </div>
 
-  <!-- About Section -->
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-        Sonia J. Arthur, PhD is a first-year PhD student in [  ] at Boston University.
-        She also holds a Masters of Philosophy from Kwame Nkrumah University of Science 
-        and Technology (KNUST), where she graduated in 2025. Her research focuses on ...
-        Her dissertation investigates how ... blah blah
+  <section class="about animate-on-scroll">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2>Academic story and research direction</h2>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>
+          Sonia J. Arthur is a PhD student in Computer Science at Boston University with a strong interest in
+          machine learning, natural language processing, and responsible applications of AI in high-impact domains.
+        </p>
+        <p>
+          Her work sits at the intersection of research, policy, and public good. She is especially interested in
+          how data-driven systems can support more thoughtful decision-making in areas such as healthcare,
+          communication, and digital equity.
+        </p>
+        <p>
+          Before beginning doctoral study, she completed her MPhil at Kwame Nkrumah University of Science and
+          Technology, building a foundation in research design, technical communication, and interdisciplinary problem-solving.
+        </p>
+      </div>
+      <aside class="info-panel">
+        <h3>Research Interests</h3>
+        <ul class="tag-list">
+          <li>Machine Learning</li>
+          <li>Natural Language Processing</li>
+          <li>Responsible AI</li>
+          <li>Health Informatics</li>
+          <li>Data Policy</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="cta-strip animate-on-scroll">
+    <div>
+      <h2>Looking for a quick overview?</h2>
+      <p>Use the CV preview for a concise snapshot, then explore publications and teaching highlights for more detail.</p>
+    </div>
+    <a class="btn" href="cv.html">Open Full CV Page</a>
+  </section>
+
+  <section class="cv animate-on-scroll">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">CV Access</span>
+        <h2>Curriculum Vitae</h2>
+      </div>
+      <a class="btn" href="assets/pdfs/cv.pdf" download>Download CV</a>
+    </div>
+    <p class="lede">
+      A downloadable version of Sonia's curriculum vitae is available for conference applications,
+      academic reviews, and research collaborations.
     </p>
   </section>
-  <section class="cv">
-    <h2>Curriculum Vitae</h2>
-    <p>You can download my CV below:</p>
-    <a class="btn" href="assets/pdfs/cv.pdf" download>Download CV</a>
-  </section>
+
+  <footer class="site-footer">
+    <p>Academic portfolio for Dr. Sonia J. Arthur.</p>
+  </footer>
+
   <script src="js/darkmode.js"></script>
   <script src="js/animations.js"></script>
-  <script src="js/script.js"></script>
   <script src="js/modal.js"></script>
 </body>
 </html>

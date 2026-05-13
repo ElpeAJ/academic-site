@@ -3,142 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Teaching recognitions, awards, and academic gallery for Dr. Sonia J. Arthur.">
   <title>Teaching & Awards | Dr. Sonia J. Arthur</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <!-- Navbar -->
-  <!-- <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="publications.html">Publications</a>
-    <a href="cv.html">CV</a>
-    <a href="teaching-awards.html">Teaching & Awards</a>
-    <a href="blog.html">Blog</a>
-    <button id="cvBtn" class="cv-btn">View CV</button>
-    <button id="dark-mode-toggle">Toggle Dark Mode</button>
-  </nav> -->
-
+<body data-page="teaching-awards">
   <nav class="navbar">
     <div class="nav-container">
-      <!-- Logo / Name -->
-      <a href="#" class="nav-logo">Dr. Sonia J. Arthur</a>
-  
-      <!-- Menu Items -->
+      <a href="index.html" class="nav-logo">Dr. Sonia J. Arthur</a>
       <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="cv.html">CV</a></li>
-        <li><a href="teaching-awards.html">Teaching & Awards</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><button id="cvBtn" class="cv-btn">View CV</button></li>
-        <li><button id="dark-mode-toggle">Toggle Dark Mode</button></li>
+        <li><a href="index.html" data-nav="home">Home</a></li>
+        <li><a href="publications.html" data-nav="publications">Publications</a></li>
+        <li><a href="cv.html" data-nav="cv">CV</a></li>
+        <li><a href="teaching-awards.html" data-nav="teaching-awards">Teaching & Awards</a></li>
+        <li><a href="blog.html" data-nav="blog">Updates</a></li>
+        <li class="nav-actions">
+          <button id="cvBtn" class="cv-btn" type="button">View CV</button>
+          <button id="dark-mode-toggle" type="button">Toggle Theme</button>
+        </li>
       </ul>
-  
-      <!-- Hamburger -->
-      <div class="hamburger" id="hamburger">
+      <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
     </div>
   </nav>
 
-  <!-- Modal for CV -->
-  <div id="cvModal" class="modal">
+  <div id="cvModal" class="modal" aria-hidden="true">
     <div class="modal-content">
-      <span id="closeModal" class="close">&times;</span>
+      <span id="closeModal" class="close" role="button" aria-label="Close CV modal">&times;</span>
       <h2>Curriculum Vitae</h2>
-      <iframe src="assets/pdfs/cv.pdf" width="100%" height="500px"></iframe>
+      <iframe src="assets/pdfs/cv.pdf" title="Curriculum Vitae preview"></iframe>
       <div class="modal-footer">
-        <a href="assets/pdfs/cv.pdf" download="Dr. Sonia J. Arthur .pdf" class="download-btn">Download CV</a>
+        <a href="assets/pdfs/cv.pdf" download="Dr-Sonia-J-Arthur-CV.pdf" class="download-btn">Download CV</a>
       </div>
     </div>
   </div>
 
-  <!-- Teaching & Awards Section -->
-<section class="awards">
-    <h2>Teaching & Awards</h2>
-    <div class="awards-grid">
-      <!-- Example Award Card -->
-      <div class="award-card">
-        <div class="award-image">
-          <img src="assets/images/cert-award3.jpg" alt="Best Research Award">
-          <div class="overlay">View</div>
-        </div>
-        <p>Best Research Award - 2023</p>
+  <main class="awards-page animate-on-scroll">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Recognition</span>
+        <h2>Teaching, awards, and academic moments</h2>
       </div>
-
-      <div class="award-card">
-        <div class="award-image">
-          <img src="assets/images/cert-award4.jpg" alt="Best Research Award">
-          <div class="overlay">View</div>
-        </div>
-        <p>Best Research Award - 2023</p>
-      </div>
-  
-      <div class="award-card">
-        <div class="award-image">
-          <img src="assets/images/cert-award1.jpg" alt="Teaching Excellence Award">
-          <div class="overlay">View</div>
-        </div>
-        <p>Teaching Excellence Award - 2022</p>
-      </div>
-      <!-- Add more award cards -->
+      <p>Highlights from teaching support, achievement, and milestones across Sonia's academic journey.</p>
     </div>
-  </section>
 
- <!-- Awards Modal -->
-<div id="award-modal" class="modalA">
-    <span class="close-award">&times;</span>
-    <img id="award-modal-img" src="" alt="Award">
+    <section class="awards">
+      <h3>Certificates and awards</h3>
+      <div class="awards-grid">
+        <article class="award-card">
+          <div class="award-image">
+            <img src="assets/images/cert-award3.jpg" alt="Award certificate">
+            <div class="overlay">Open</div>
+          </div>
+          <p>Research recognition and professional achievement.</p>
+        </article>
+
+        <article class="award-card">
+          <div class="award-image">
+            <img src="assets/images/cert-award4.jpg" alt="Award certificate">
+            <div class="overlay">Open</div>
+          </div>
+          <p>Conference and academic participation milestone.</p>
+        </article>
+
+        <article class="award-card">
+          <div class="award-image">
+            <img src="assets/images/cert-award1.jpg" alt="Teaching award certificate">
+            <div class="overlay">Open</div>
+          </div>
+          <p>Teaching and service contribution snapshot.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <h3>Academic gallery</h3>
+      <div class="gallery-grid">
+        <article class="gallery-card" data-category="bachelors">
+          <h3>Bachelor's Journey</h3>
+          <p>Images from foundational academic milestones and celebrations.</p>
+        </article>
+        <article class="gallery-card" data-category="masters">
+          <h3>Master's Journey</h3>
+          <p>Moments from graduate study, research progress, and achievement.</p>
+        </article>
+        <article class="gallery-card" data-category="internships">
+          <h3>Internships</h3>
+          <p>Professional and applied-learning experiences across placements.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="award-modal" class="modalA" aria-hidden="true">
+    <span class="close-award" role="button" aria-label="Close award modal">&times;</span>
+    <img id="award-modal-img" src="" alt="Award certificate preview">
   </div>
-  
-  
-  
-  <!-- Gallery Section -->
-  <section class="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <div class="gallery-card" data-category="bachelors">
-        <h3>Bachelors</h3>
-      </div>
-      <div class="gallery-card" data-category="masters">
-        <h3>Masters</h3>
-      </div>
-      <div class="gallery-card" data-category="internships">
-        <h3>Internships</h3>
-      </div>
-      <!-- Add more categories -->
-    </div>
-  </section>
-  
-  <!-- Modal -->
-<div id="modalTA" class="modalTA">
-    <span class="closeTA">&times;</span>
-    <span class="prevTA">&#10094;</span>
-    <span class="nextTA">&#10095;</span>
-    <img class="modalTA-content" id="modalTA-img">
+
+  <div id="modalTA" class="modalTA" aria-hidden="true">
+    <span class="closeTA" role="button" aria-label="Close gallery modal">&times;</span>
+    <span class="prevTA" role="button" aria-label="Previous image">&#10094;</span>
+    <span class="nextTA" role="button" aria-label="Next image">&#10095;</span>
+    <img class="modalTA-content" id="modalTA-img" alt="Gallery preview">
     <div id="captionTA"></div>
-</div>
+  </div>
 
-  <!-- Teaching Section
-  <section class="teaching animate-on-scroll">
-    <h2>Teaching</h2>
-    <ul>
-      <li><strong>2024</strong> – Teaching Assistant, "Machine Learning Fundamentals" at XYZ University</li>
-      <li><strong>2023</strong> – Guest Lecturer, "Ethics in AI" at ABC Institute</li>
-    </ul>
-  </section>
-
-  Awards Section
-  <section class="awards animate-on-scroll">
-    <h2>Awards & Honors</h2>
-    <ul>
-      <li><strong>2024</strong> – Best PhD Dissertation Award, XYZ University</li>
-      <li><strong>2023</strong> – Research Fellowship, National AI Research Foundation</li>
-    </ul>
-  </section> -->
+  <footer class="site-footer">
+    <p>Teaching and milestone gallery for Dr. Sonia J. Arthur.</p>
+  </footer>
 
   <script src="js/darkmode.js"></script>
   <script src="js/animations.js"></script>

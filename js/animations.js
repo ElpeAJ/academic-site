@@ -1,33 +1,38 @@
-// Intersection Observer for animations
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+if (animatedElements.length > 0) {
+  const observer = new IntersectionObserver((entries, scrollObserver) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("fade-in-up");
-        observer.unobserve(entry.target);
+        scrollObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2 });
-  
-  // Apply to all elements with .animate-on-scroll
-  document.querySelectorAll(".animate-on-scroll").forEach(el => {
-    observer.observe(el);
-  });
-  
-document.addEventListener("DOMContentLoaded", function () {
-    const typewriterEl = document.getElementById("typewriter");
-    const text = "Sharing my research, achievements, and academic journey.";
-  
-    let i = 0;
-    function typeWriter() {
-      if (i < text.length) {
-        typewriterEl.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 80); // typing speed
-      } else {
-        // Remove cursor after finishing
-        typewriterEl.classList.add("finished");
-      }
+  }, { threshold: 0.18 });
+
+  animatedElements.forEach((element) => observer.observe(element));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const typewriterEl = document.getElementById("typewriter");
+  const text = "Sharing research, achievements, and an academic journey with clarity.";
+
+  if (!typewriterEl) {
+    return;
+  }
+
+  let index = 0;
+
+  function typeWriter() {
+    if (index < text.length) {
+      typewriterEl.textContent += text.charAt(index);
+      index += 1;
+      setTimeout(typeWriter, 55);
+      return;
     }
-  
-    typeWriter();
-  });
+
+    typewriterEl.classList.add("finished");
+  }
+
+  typeWriter();
+});

@@ -1,45 +1,24 @@
-// Publications.js starts here
-  // Filter functionality
-  function filterSelection(category) {
-    let items = document.querySelectorAll(".filter-item");
+function filterSelection(category) {
+  const items = document.querySelectorAll(".filter-item");
 
-    if (category === "all") {
-      items.forEach(item => item.style.display = "block");
-    } else {
-      items.forEach(item => {
-        item.style.display = item.classList.contains(category) ? "block" : "none";
-      });
-    }
-  }
+  items.forEach((item) => {
+    const shouldShow = category === "all" || item.classList.contains(category);
+    item.style.display = shouldShow ? "block" : "none";
+  });
+}
 
-  // Default view = all
-  filterSelection("all");
+filterSelection("all");
 
-  // Search functionality
-  document.getElementById("searchBar").addEventListener("input", function () {
-    let query = this.value.toLowerCase();
-    let items = document.querySelectorAll(".filter-item");
+const searchBar = document.getElementById("searchBar");
 
-    items.forEach(item => {
-      let text = item.innerText.toLowerCase();
-      item.style.display = text.includes(query) ? "block" : "none";
+if (searchBar) {
+  searchBar.addEventListener("input", function handleSearch() {
+    const query = this.value.trim().toLowerCase();
+    const items = document.querySelectorAll(".filter-item");
+
+    items.forEach((item) => {
+      const matchesSearch = item.innerText.toLowerCase().includes(query);
+      item.style.display = matchesSearch ? "block" : "none";
     });
   });
-
-  // // For Use later -- I guess
-  // fetch("data/publications.json")
-  // .then(response => response.json())
-  // .then(data => {
-  //   const pubList = document.getElementById("pub-list");
-  //   data.forEach(pub => {
-  //     const li = document.createElement("li");
-  //     li.innerHTML = `
-  //       <strong>${pub.title}</strong><br>
-  //       <em>${pub.authors}</em> (${pub.year})<br>
-  //       <span>${pub.journal}</span><br>
-  //       <a href="${pub.link}" target="_blank">View Publication</a>
-  //     `;
-  //     pubList.appendChild(li);
-  //   });
-  // })
-  // .catch(error => console.error("Error loading publications:", error));
+}
