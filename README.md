@@ -1,5 +1,6 @@
 
 # Dr. Sonia Academic Portfolio Website  
+![Homepage Screenshot](assets/screenshots/homepage1.png)
 
 This is a responsive academic portfolio website built for **Dr. Sonia**, a PhD student.  
 The site showcases her research, publications, academic journey, and professional background in a clean, modern layout.  
